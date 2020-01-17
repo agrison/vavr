@@ -235,6 +235,7 @@ public final class Tuple0 implements Tuple, Serializable {
         return Tuple.of(tuple._1, tuple._2, tuple._3, tuple._4, tuple._5, tuple._6, tuple._7, tuple._8);
     }
 
+
     // -- Object
 
     @Override

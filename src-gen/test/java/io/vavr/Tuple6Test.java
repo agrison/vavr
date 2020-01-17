@@ -234,6 +234,48 @@ public class Tuple6Test {
     }
 
     @Test
+    public void shouldRemove1() {
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4, 5, 6).remove1();
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> expected = Tuple.of(2, 3, 4, 5, 6);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove2() {
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4, 5, 6).remove2();
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> expected = Tuple.of(1, 3, 4, 5, 6);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove3() {
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4, 5, 6).remove3();
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> expected = Tuple.of(1, 2, 4, 5, 6);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove4() {
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4, 5, 6).remove4();
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> expected = Tuple.of(1, 2, 3, 5, 6);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove5() {
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4, 5, 6).remove5();
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> expected = Tuple.of(1, 2, 3, 4, 6);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove6() {
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4, 5, 6).remove6();
+        final Tuple5<Integer, Integer, Integer, Integer, Integer> expected = Tuple.of(1, 2, 3, 4, 5);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
     public void shouldRecognizeEquality() {
         final Tuple6<Object, Object, Object, Object, Object, Object> tuple1 = createTuple();
         final Tuple6<Object, Object, Object, Object, Object, Object> tuple2 = createTuple();

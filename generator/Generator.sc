@@ -2182,6 +2182,17 @@ def generateMainClasses(): Unit = {
               }
             """)("\n\n")}
 
+            ${(1 to i).gen(j => xs"""
+              /$javadoc
+               * Convert this tuple to a tuple of inferior number of elements, by removing the ${j.ordinal} element.
+               *
+               * @return a new Tuple without the ${j.ordinal} element.
+               */
+              public Tuple${i-1}${if (i == 1) "" else "<" + ((1 to i) filter(x => x != j)).gen(k => s"T$k")(", ") + ">"} remove$j() {
+                  return ${im.getType("io.vavr.Tuple")}.${if (i == 1) "empty" else "of"}(${((1 to i) filter(x => x != j)).gen(k => s"_$k")(", ")});
+              }
+            """)("\n\n")}
+
             // -- Object
 
             @Override
@@ -3631,6 +3642,15 @@ def generateTestClasses(): Unit = {
                 public void shouldConcatTuple$j() {
                     final Tuple${i+j}<${(1 to i+j).gen(j => s"Integer")(", ")}> actual = ${ if (i == 0) "Tuple0.instance()" else s"Tuple.of(${(1 to i).gen(j => xs"$j")(", ")})"}.concat(Tuple.of(${(i+1 to i+j).gen(k => s"$k")(", ")}));
                     final Tuple${i+j}<${(1 to i+j).gen(j => s"Integer")(", ")}> expected = Tuple.of(${(1 to i+j).gen(j => xs"$j")(", ")});
+                    assertThat(actual).isEqualTo(expected);
+                }
+              """)("\n\n")}
+
+              ${(1 to i).gen(j => xs"""
+                @$test
+                public void shouldRemove$j() {
+                    final Tuple${i-1}${if (i == 1) "" else "<" + (1 to i-1).gen(j => s"Integer")(", ") + ">"} actual = Tuple.of(${(1 to i).gen(j => xs"$j")(", ")}).remove$j();
+                    final Tuple${i-1}${if (i == 1) "" else "<" + (1 to i-1).gen(j => s"Integer")(", ") + ">"} expected = ${if (i == 1) "Tuple.empty" else "Tuple.of"}(${(1 to i filter(x => x != j)).gen(j => xs"$j")(", ")});
                     assertThat(actual).isEqualTo(expected);
                 }
               """)("\n\n")}

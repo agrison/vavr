@@ -200,6 +200,34 @@ public class Tuple4Test {
     }
 
     @Test
+    public void shouldRemove1() {
+        final Tuple3<Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4).remove1();
+        final Tuple3<Integer, Integer, Integer> expected = Tuple.of(2, 3, 4);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove2() {
+        final Tuple3<Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4).remove2();
+        final Tuple3<Integer, Integer, Integer> expected = Tuple.of(1, 3, 4);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove3() {
+        final Tuple3<Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4).remove3();
+        final Tuple3<Integer, Integer, Integer> expected = Tuple.of(1, 2, 4);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove4() {
+        final Tuple3<Integer, Integer, Integer> actual = Tuple.of(1, 2, 3, 4).remove4();
+        final Tuple3<Integer, Integer, Integer> expected = Tuple.of(1, 2, 3);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
     public void shouldRecognizeEquality() {
         final Tuple4<Object, Object, Object, Object> tuple1 = createTuple();
         final Tuple4<Object, Object, Object, Object> tuple2 = createTuple();

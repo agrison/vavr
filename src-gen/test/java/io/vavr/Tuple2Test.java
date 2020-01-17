@@ -187,6 +187,20 @@ public class Tuple2Test {
     }
 
     @Test
+    public void shouldRemove1() {
+        final Tuple1<Integer> actual = Tuple.of(1, 2).remove1();
+        final Tuple1<Integer> expected = Tuple.of(2);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
+    public void shouldRemove2() {
+        final Tuple1<Integer> actual = Tuple.of(1, 2).remove2();
+        final Tuple1<Integer> expected = Tuple.of(1);
+        assertThat(actual).isEqualTo(expected);
+    }
+
+    @Test
     public void shouldRecognizeEquality() {
         final Tuple2<Object, Object> tuple1 = createTuple();
         final Tuple2<Object, Object> tuple2 = createTuple();

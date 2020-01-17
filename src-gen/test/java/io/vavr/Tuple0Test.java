@@ -122,6 +122,7 @@ public class Tuple0Test {
         assertThat(actual).isEqualTo(expected);
     }
 
+
     @Test
     public void shouldRecognizeEquality() {
         final Tuple0 tuple1 = createTuple();

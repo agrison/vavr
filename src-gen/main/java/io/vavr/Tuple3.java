@@ -356,6 +356,33 @@ public final class Tuple3<T1, T2, T3> implements Tuple, Serializable {
         return Tuple.of(_1, _2, _3, tuple._1, tuple._2, tuple._3, tuple._4, tuple._5);
     }
 
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 1st element.
+     *
+     * @return a new Tuple without the 1st element.
+     */
+    public Tuple2<T2, T3> remove1() {
+        return Tuple.of(_2, _3);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 2nd element.
+     *
+     * @return a new Tuple without the 2nd element.
+     */
+    public Tuple2<T1, T3> remove2() {
+        return Tuple.of(_1, _3);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 3rd element.
+     *
+     * @return a new Tuple without the 3rd element.
+     */
+    public Tuple2<T1, T2> remove3() {
+        return Tuple.of(_1, _2);
+    }
+
     // -- Object
 
     @Override

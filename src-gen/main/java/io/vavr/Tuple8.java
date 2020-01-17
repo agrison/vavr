@@ -541,6 +541,78 @@ public final class Tuple8<T1, T2, T3, T4, T5, T6, T7, T8> implements Tuple, Seri
     }
 
 
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 1st element.
+     *
+     * @return a new Tuple without the 1st element.
+     */
+    public Tuple7<T2, T3, T4, T5, T6, T7, T8> remove1() {
+        return Tuple.of(_2, _3, _4, _5, _6, _7, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 2nd element.
+     *
+     * @return a new Tuple without the 2nd element.
+     */
+    public Tuple7<T1, T3, T4, T5, T6, T7, T8> remove2() {
+        return Tuple.of(_1, _3, _4, _5, _6, _7, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 3rd element.
+     *
+     * @return a new Tuple without the 3rd element.
+     */
+    public Tuple7<T1, T2, T4, T5, T6, T7, T8> remove3() {
+        return Tuple.of(_1, _2, _4, _5, _6, _7, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 4th element.
+     *
+     * @return a new Tuple without the 4th element.
+     */
+    public Tuple7<T1, T2, T3, T5, T6, T7, T8> remove4() {
+        return Tuple.of(_1, _2, _3, _5, _6, _7, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 5th element.
+     *
+     * @return a new Tuple without the 5th element.
+     */
+    public Tuple7<T1, T2, T3, T4, T6, T7, T8> remove5() {
+        return Tuple.of(_1, _2, _3, _4, _6, _7, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 6th element.
+     *
+     * @return a new Tuple without the 6th element.
+     */
+    public Tuple7<T1, T2, T3, T4, T5, T7, T8> remove6() {
+        return Tuple.of(_1, _2, _3, _4, _5, _7, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 7th element.
+     *
+     * @return a new Tuple without the 7th element.
+     */
+    public Tuple7<T1, T2, T3, T4, T5, T6, T8> remove7() {
+        return Tuple.of(_1, _2, _3, _4, _5, _6, _8);
+    }
+
+    /**
+     * Convert this tuple to a tuple of inferior number of elements, by removing the 8th element.
+     *
+     * @return a new Tuple without the 8th element.
+     */
+    public Tuple7<T1, T2, T3, T4, T5, T6, T7> remove8() {
+        return Tuple.of(_1, _2, _3, _4, _5, _6, _7);
+    }
+
     // -- Object
 
     @Override
